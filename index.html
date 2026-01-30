@@ -1,224 +1,887 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Kids Kindergarten</title>
-
+<title>Happy Kids Kindergarten - A World of Joy</title>
 <style>
-:root{
-  --yellow:#F5B400;
-  --black:#1E1E1E;
-  --white:#ffffff;
-  --grey:#F7F7F7;
-  --orange:#FF9800;
-  --radius:22px;
-  --shadow:0 12px 30px rgba(0,0,0,0.1);
+:root {
+--primary: #FF6B6B;
+--secondary: #4ECDC4;
+--accent: #FFE66D;
+--orange: #FF9F43;
+--purple: #A29BFE;
+--light-bg: #F9FBFF;
+--text-dark: #2D3436;
+--text-muted: #636E72;
+--white: #FFFFFF;
+--radius: 24px;
+--shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,Arial,sans-serif}
-body{background:var(--grey);color:var(--black)}
-html{scroll-behavior:smooth}
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
 
-/* NAV */
-nav{
-  position:fixed;top:0;width:100%;
-  background:var(--white);
-  display:flex;justify-content:space-between;align-items:center;
-  padding:18px 6%;z-index:1000;box-shadow:var(--shadow)
-}
-.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px}
-.nav-links{display:flex;gap:30px;list-style:none}
-.nav-links a{text-decoration:none;color:var(--black);font-weight:600}
-.btn{
-  padding:14px 30px;border-radius:40px;
-  background:var(--yellow);color:var(--black);
-  text-decoration:none;font-weight:700;border:none;cursor:pointer
-}
-.btn:hover{transform:translateY(-2px)}
+    html {
+        scroll-behavior: smooth;
+    }
 
-/* HERO */
-.hero{
-  min-height:100vh;
-  padding:140px 6% 80px;
-  display:grid;grid-template-columns:1fr 1fr;gap:50px;
-  align-items:center;background:linear-gradient(#fff,#FFF4D6)
-}
-.hero h1{font-size:52px;line-height:1.1}
-.hero p{margin:20px 0;font-size:18px;color:#555}
+    body {
+        background-color: var(--light-bg);
+        color: var(--text-dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
 
-/* SECTIONS */
-section{padding:90px 6%}
-.section-header{text-align:center;margin-bottom:60px}
-.section-header h2{font-size:38px;margin-bottom:10px}
+    section {
+        padding: 100px 5%;
+    }
 
-/* GRID */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-/* CARD */
-.card{
-  background:var(--white);
-  padding:35px;border-radius:var(--radius);
-  box-shadow:var(--shadow);text-align:center
-}
+    .btn {
+        display: inline-block;
+        padding: 14px 32px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+        cursor: pointer;
+        border: none;
+        font-size: 16px;
+    }
 
-/* GALLERY */
-.gallery-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px
-}
-.gallery-item{
-  height:230px;border-radius:20px;
-  overflow:hidden;box-shadow:var(--shadow)
-}
-.gallery-item svg{width:100%;height:100%}
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
 
-/* CONTACT */
-.contact-box{
-  display:grid;grid-template-columns:1fr 1fr;gap:40px
-}
-input,textarea{
-  width:100%;padding:14px;border-radius:12px;
-  border:2px solid #ddd;margin-bottom:15px
-}
+    .btn-primary {
+        background-color: var(--primary);
+        color: var(--white);
+    }
 
-/* FOOTER */
-footer{
-  background:var(--black);color:var(--white);
-  padding:60px 6% 30px
-}
-footer a{color:#ccc;text-decoration:none}
+    .btn-secondary {
+        background-color: var(--secondary);
+        color: var(--white);
+    }
 
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr;text-align:center}
-  .contact-box{grid-template-columns:1fr}
-  .nav-links{display:none}
-}
+    .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+    }
+
+    /* Navbar */
+    nav {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 20px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(5px);
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 24px;
+        font-weight: 900;
+        color: var(--primary);
+        text-decoration: none;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 600;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 100vh;
+        padding-top: 120px;
+        background: radial-gradient(circle at 10% 20%, rgba(255, 230, 109, 0.1) 0%, rgba(78, 205, 196, 0.1) 90%);
+    }
+
+    .hero-content {
+        flex: 1;
+        max-width: 600px;
+    }
+
+    .hero-content h1 {
+        font-size: 56px;
+        line-height: 1.1;
+        margin-bottom: 24px;
+        color: var(--primary);
+    }
+
+    .hero-content p {
+        font-size: 20px;
+        margin-bottom: 32px;
+        color: var(--text-muted);
+    }
+
+    .hero-btns {
+        display: flex;
+        gap: 20px;
+    }
+
+    .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Cards and Grids */
+    .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+        font-size: 40px;
+        color: var(--primary);
+        margin-bottom: 15px;
+    }
+
+    .section-header p {
+        color: var(--text-muted);
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .card {
+        background: var(--white);
+        padding: 40px;
+        border-radius: var(--radius);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: var(--shadow);
+        border-bottom: 5px solid transparent;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+
+    .card.p-1 { border-color: var(--primary); }
+    .card.p-2 { border-color: var(--secondary); }
+    .card.p-3 { border-color: var(--accent); }
+    .card.p-4 { border-color: var(--purple); }
+
+    .card-icon {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card h3 {
+        margin-bottom: 15px;
+        font-size: 22px;
+    }
+
+    /* About Section */
+    .about {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        background-color: var(--white);
+    }
+
+    .about-image {
+        flex: 1;
+    }
+
+    .about-content {
+        flex: 1;
+    }
+
+    .about-content h2 {
+        font-size: 36px;
+        color: var(--secondary);
+        margin-bottom: 20px;
+    }
+
+    /* Why Choose Us */
+    .features {
+        background-color: #f0f7f6;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 30px;
+        background: var(--white);
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        flex-shrink: 0;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .gallery-item {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        height: 250px;
+        background: #eee;
+        cursor: pointer;
+    }
+
+    .gallery-item svg {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s;
+    }
+
+    .gallery-item:hover svg {
+        transform: scale(1.1);
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+        background: var(--white);
+        padding: 30px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        position: relative;
+    }
+
+    .testimonial-user {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .user-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: var(--light-bg);
+    }
+
+    /* Contact Section */
+    .contact {
+        background: var(--white);
+    }
+
+    .contact-container {
+        display: flex;
+        gap: 60px;
+        align-items: flex-start;
+    }
+
+    .contact-form {
+        flex: 1;
+        background: var(--light-bg);
+        padding: 40px;
+        border-radius: var(--radius);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #eee;
+        border-radius: 12px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+        border-color: var(--secondary);
+    }
+
+    .contact-info {
+        flex: 1;
+    }
+
+    /* Footer */
+    footer {
+        background-color: var(--text-dark);
+        color: var(--white);
+        padding: 80px 5% 30px;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 50px;
+    }
+
+    .footer-col h4 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: var(--accent);
+    }
+
+    .footer-col p, .footer-col a {
+        color: #bdc3c7;
+        text-decoration: none;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid #444;
+        padding-top: 30px;
+        text-align: center;
+        font-size: 14px;
+        color: #999;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+        .hero { flex-direction: column; text-align: center; }
+        .hero-btns { justify-content: center; }
+        .about { flex-direction: column; }
+        .contact-container { flex-direction: column; }
+        .nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+        .hero-content h1 { font-size: 40px; }
+        section { padding: 60px 5%; }
+    }
+
+    /* Custom SVGs and Shapes */
+    .blob-bg {
+        position: absolute;
+        z-index: -1;
+        opacity: 0.1;
+    }
 </style>
+
 </head>
-
 <body>
-
-<!-- NAV -->
-<nav>
-  <div class="logo">
-    <svg width="40" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="45" fill="#F5B400"/>
-      <path d="M25 60 Q50 25 75 60" fill="none" stroke="#000" stroke-width="6"/>
-      <circle cx="50" cy="72" r="5" fill="#000"/>
-    </svg>
-    Happy Kids
-  </div>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#programs">Programs</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a class="btn" href="#contact">Enroll Now</a>
+        <nav>
+    <a href="#" class="logo">
+        <svg width="40" height="40" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="#FF6B6B" />
+            <path d="M30 40 Q50 20 70 40 Q50 60 30 40" fill="white" />
+            <circle cx="40" cy="45" r="4" fill="#2D3436" />
+            <circle cx="60" cy="45" r="4" fill="#2D3436" />
+            <path d="M40 65 Q50 75 60 65" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" />
+        </svg>
+        Happy Kids
+    </a>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary">Enroll Now</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
-  <div>
-    <h1>Give Your Child a Smart Start in Life</h1>
-    <p>Play-based learning, safety, and love — inspired by the SpacECE mission.</p>
-    <a class="btn" href="#programs">Explore Programs</a>
-  </div>
-  <svg viewBox="0 0 500 400">
-    <rect x="120" y="170" width="260" height="170" rx="25" fill="#F5B400"/>
-    <path d="M100 180 L250 80 L400 180 Z" fill="#000"/>
-    <rect x="210" y="240" width="80" height="100" rx="12" fill="#fff"/>
-    <circle cx="250" cy="290" r="4"/>
-    <circle cx="420" cy="70" r="35" fill="#F5B400"/>
-  </svg>
+    <div class="container hero">
+        <div class="hero-content">
+            <h1>Where Every Child's Journey Begins With a Smile</h1>
+            <p>A safe, nurturing, and playful environment designed to inspire curiosity and foster early learning for your little ones.</p>
+            <div class="hero-btns">
+                <a href="#programs" class="btn btn-primary">Get Admission</a>
+                <a href="#contact" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <svg width="500" height="400" viewBox="0 0 500 400">
+                <!-- School House -->
+                <rect x="100" y="150" width="300" height="200" rx="20" fill="#4ECDC4" />
+                <path d="M80 160 L250 50 L420 160 Z" fill="#FF6B6B" />
+                <rect x="180" y="250" width="60" height="100" fill="#FFE66D" rx="10" />
+                <circle cx="230" cy="300" r="3" fill="#2D3436" />
+                <rect x="140" y="190" width="50" height="50" rx="10" fill="white" opacity="0.8" />
+                <rect x="310" y="190" width="50" height="50" rx="10" fill="white" opacity="0.8" />
+                <!-- Sun -->
+                <circle cx="430" cy="70" r="40" fill="#FFE66D" />
+                <!-- Grass -->
+                <path d="M0 350 Q250 320 500 350 L500 400 L0 400 Z" fill="#78E08F" />
+                <!-- Little Flower -->
+                <circle cx="50" cy="360" r="5" fill="#FF9F43" />
+                <circle cx="45" cy="355" r="3" fill="#FF6B6B" />
+                <circle cx="55" cy="355" r="3" fill="#FF6B6B" />
+                <circle cx="50" cy="350" r="3" fill="#FF6B6B" />
+            </svg>
+        </div>
+    </div>
 </section>
 
-<!-- PROGRAMS -->
-<section id="programs">
-  <div class="section-header">
-    <h2>Our Programs</h2>
-    <p>Designed for joyful early learning</p>
-  </div>
-  <div class="grid">
-    <div class="card"><h3>Play Group</h3><p>1.5 – 2.5 Years</p></div>
-    <div class="card"><h3>Nursery</h3><p>2.5 – 3.5 Years</p></div>
-    <div class="card"><h3>Kindergarten</h3><p>3.5 – 5 Years</p></div>
-    <div class="card"><h3>Daycare</h3><p>Safe & Secure</p></div>
-  </div>
+<section class="about" id="about">
+    <div class="container about">
+        <div class="about-image">
+            <svg width="450" height="350" viewBox="0 0 400 300">
+                <!-- Teacher Figure -->
+                <circle cx="150" cy="80" r="40" fill="#A29BFE" />
+                <rect x="120" y="120" width="60" height="100" rx="15" fill="#A29BFE" />
+                <!-- Kid Figure -->
+                <circle cx="250" cy="180" r="30" fill="#FF9F43" />
+                <rect x="230" y="210" width="40" height="60" rx="10" fill="#FF9F43" />
+                <!-- Heart -->
+                <path d="M200 100 Q210 80 220 100 T200 130 T180 100 Q190 80 200 100" fill="#FF6B6B" />
+                <!-- Book -->
+                <rect x="155" y="150" width="40" height="50" fill="#4ECDC4" rx="2" transform="rotate(-10)" />
+                <line x1="165" y1="160" x2="185" y2="155" stroke="white" stroke-width="2" />
+                <line x1="163" y1="170" x2="183" y2="165" stroke="white" stroke-width="2" />
+            </svg>
+        </div>
+        <div class="about-content">
+            <h2>Our Mission is to Nurture and Protect</h2>
+            <p>Founded on the principles of love, safety, and creative exploration, Happy Kids Kindergarten provides an exceptional early childhood experience. We believe that every child is unique and deserves a space where they can grow at their own pace.</p>
+            <p style="margin-top: 15px;">Our certified educators focus on holistic development, blending structured learning with free-play activities that spark imagination.</p>
+            <a href="#" class="btn btn-secondary" style="margin-top: 25px;">Learn More</a>
+        </div>
+    </div>
 </section>
 
-<!-- GALLERY -->
-<section id="gallery">
-  <div class="section-header">
-    <h2>Happy Moments</h2>
-  </div>
-  <div class="gallery-grid">
-
-    <div class="gallery-item">
-      <svg viewBox="0 0 200 200">
-        <rect width="200" height="200" fill="#F5B400"/>
-        <circle cx="100" cy="90" r="35" fill="#fff"/>
-        <circle cx="85" cy="85" r="5"/>
-        <circle cx="115" cy="85" r="5"/>
-        <path d="M80 105 Q100 120 120 105" stroke="#000" fill="none"/>
-      </svg>
+<section class="programs" id="programs">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Fun Programs</h2>
+            <p>Tailored learning paths for different age groups to ensure optimal growth and happiness.</p>
+        </div>
+        <div class="grid">
+            <div class="card p-1">
+                <div class="card-icon">
+                    <svg width="80" height="80" viewBox="0 0 100 100">
+                        <rect x="20" y="40" width="20" height="20" fill="#FF6B6B" rx="2" />
+                        <rect x="40" y="40" width="20" height="20" fill="#4ECDC4" rx="2" />
+                        <rect x="30" y="20" width="20" height="20" fill="#FFE66D" rx="2" />
+                        <rect x="60" y="40" width="20" height="20" fill="#A29BFE" rx="2" />
+                    </svg>
+                </div>
+                <h3>Play Group</h3>
+                <p>Age: 1.5 - 2.5 Years. Sensory play and social interaction through fun games.</p>
+            </div>
+            <div class="card p-2">
+                <div class="card-icon">
+                    <svg width="80" height="80" viewBox="0 0 100 100">
+                        <path d="M20 70 L50 20 L80 70 Z" fill="#4ECDC4" />
+                        <circle cx="50" cy="50" r="10" fill="#FFE66D" />
+                    </svg>
+                </div>
+                <h3>Nursery</h3>
+                <p>Age: 2.5 - 3.5 Years. Developing language skills and motor coordination.</p>
+            </div>
+            <div class="card p-3">
+                <div class="card-icon">
+                    <svg width="80" height="80" viewBox="0 0 100 100">
+                        <rect x="20" y="30" width="60" height="45" rx="5" fill="#FFE66D" />
+                        <line x1="50" y1="30" x2="50" y2="75" stroke="#2D3436" stroke-width="2" />
+                        <circle cx="35" cy="45" r="5" fill="#FF6B6B" />
+                        <circle cx="65" cy="45" r="5" fill="#4ECDC4" />
+                    </svg>
+                </div>
+                <h3>Kindergarten</h3>
+                <p>Age: 3.5 - 5 Years. Pre-academic skills including math, reading, and arts.</p>
+            </div>
+            <div class="card p-4">
+                <div class="card-icon">
+                    <svg width="80" height="80" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="35" fill="#A29BFE" />
+                        <path d="M40 45 Q50 35 60 45" fill="none" stroke="white" stroke-width="3" />
+                        <path d="M40 65 Q50 75 60 65" fill="none" stroke="white" stroke-width="3" />
+                    </svg>
+                </div>
+                <h3>Daycare</h3>
+                <p>Age: All Ages. Safe and supervised care while parents are at work.</p>
+            </div>
+        </div>
     </div>
-
-    <div class="gallery-item">
-      <svg viewBox="0 0 200 200">
-        <rect width="200" height="200" fill="#000"/>
-        <rect x="40" y="40" width="120" height="120" rx="15" fill="#F5B400"/>
-      </svg>
-    </div>
-
-    <div class="gallery-item">
-      <svg viewBox="0 0 200 200">
-        <rect width="200" height="200" fill="#F5B400"/>
-        <path d="M40 160 L100 40 L160 160 Z" fill="#000"/>
-      </svg>
-    </div>
-
-    <div class="gallery-item">
-      <svg viewBox="0 0 200 200">
-        <rect width="200" height="200" fill="#000"/>
-        <circle cx="100" cy="100" r="60" fill="#F5B400"/>
-      </svg>
-    </div>
-
-  </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-header">
-    <h2>Contact Us</h2>
-  </div>
-  <div class="contact-box">
-    <div>
-      <h3>Admissions Open</h3>
-      <p>📍 India</p>
-      <p>📞 +91 XXXXX XXXXX</p>
+<section class="features">
+    <div class="container">
+        <div class="section-header">
+            <h2>Why Parents Choose Us</h2>
+            <p>We go the extra mile to provide a world-class experience for your children.</p>
+        </div>
+        <div class="grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="#78E08F" opacity="0.2" />
+                        <path d="M30 50 L45 65 L70 35" fill="none" stroke="#78E08F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div>
+                    <h4>Safe Environment</h4>
+                    <p>24/7 CCTV and child-proof interiors.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="#FF6B6B" opacity="0.2" />
+                        <circle cx="50" cy="40" r="15" fill="#FF6B6B" />
+                        <path d="M30 80 Q50 60 70 80" fill="#FF6B6B" />
+                    </svg>
+                </div>
+                <div>
+                    <h4>Trained Teachers</h4>
+                    <p>Certified educators with a passion for teaching.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="#FFE66D" opacity="0.2" />
+                        <path d="M30 40 L70 40 L70 70 L30 70 Z" fill="#FFE66D" />
+                        <path d="M30 40 L50 20 L70 40" fill="#FF9F43" />
+                    </svg>
+                </div>
+                <div>
+                    <h4>Fun Learning</h4>
+                    <p>Creative activities that make learning enjoyable.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="#4ECDC4" opacity="0.2" />
+                        <circle cx="50" cy="50" r="20" fill="#4ECDC4" />
+                        <line x1="50" y1="20" x2="50" y2="80" stroke="#4ECDC4" stroke-width="5" />
+                    </svg>
+                </div>
+                <div>
+                    <h4>Healthy Meals</h4>
+                    <p>Nutritious and delicious meals planned by experts.</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <form id="form">
-      <input placeholder="Parent Name" required>
-      <input placeholder="Phone" required>
-      <textarea placeholder="Message"></textarea>
-      <button class="btn" type="submit">Submit</button>
-    </form>
-  </div>
 </section>
 
-<!-- FOOTER -->
+<section class="gallery" id="gallery">
+    <div class="container">
+        <div class="section-header">
+            <h2>Capturing Happy Moments</h2>
+            <p>Take a peek into the wonderful world of Happy Kids.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <svg viewBox="0 0 200 200">
+                    <rect width="200" height="200" fill="#FFE66D" />
+                    <circle cx="100" cy="100" r="40" fill="#FF6B6B" />
+                    <circle cx="60" cy="60" r="20" fill="white" opacity="0.3" />
+                    <text x="50" y="180" font-family="Arial" font-weight="bold" fill="#2D3436">Playing</text>
+                </svg>
+            </div>
+            <div class="gallery-item">
+                <svg viewBox="0 0 200 200">
+                    <rect width="200" height="200" fill="#4ECDC4" />
+                    <rect x="50" y="50" width="100" height="100" rx="10" fill="white" opacity="0.5" />
+                    <text x="50" y="180" font-family="Arial" font-weight="bold" fill="#2D3436">Classroom</text>
+                </svg>
+            </div>
+            <div class="gallery-item">
+                <svg viewBox="0 0 200 200">
+                    <rect width="200" height="200" fill="#A29BFE" />
+                    <path d="M40 40 Q100 20 160 40 Q180 100 160 160 Q100 180 40 160 Z" fill="#FFE66D" />
+                    <text x="50" y="180" font-family="Arial" font-weight="bold" fill="#2D3436">Art & Craft</text>
+                </svg>
+            </div>
+            <div class="gallery-item">
+                <svg viewBox="0 0 200 200">
+                    <rect width="200" height="200" fill="#FF9F43" />
+                    <circle cx="50" cy="50" r="30" fill="white" opacity="0.4" />
+                    <circle cx="150" cy="150" r="30" fill="white" opacity="0.4" />
+                    <text x="50" y="180" font-family="Arial" font-weight="bold" fill="#2D3436">Music</text>
+                </svg>
+            </div>
+            <div class="gallery-item">
+                <svg viewBox="0 0 200 200">
+                    <rect width="200" height="200" fill="#78E08F" />
+                    <path d="M50 150 L100 50 L150 150 Z" fill="#FF6B6B" opacity="0.7" />
+                    <text x="50" y="180" font-family="Arial" font-weight="bold" fill="#2D3436">Adventure</text>
+                </svg>
+            </div>
+            <div class="gallery-item">
+                <svg viewBox="0 0 200 200">
+                    <rect width="200" height="200" fill="#FF6B6B" />
+                    <circle cx="100" cy="100" r="60" fill="white" opacity="0.2" />
+                    <text x="50" y="180" font-family="Arial" font-weight="bold" fill="#white">Smiles</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <div class="container">
+        <div class="section-header">
+            <h2>What Parents Say</h2>
+            <p>Read about the experiences of our happy parent community.</p>
+        </div>
+        <div class="grid">
+            <div class="testimonial-card">
+                <p>"The teachers at Happy Kids are so patient and loving. My daughter has grown so much in just six months!"</p>
+                <div class="testimonial-user">
+                    <div class="user-avatar">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50" fill="#FF9F43" />
+                            <circle cx="50" cy="40" r="20" fill="#FFE66D" />
+                            <path d="M20 90 Q50 60 80 90" fill="#FFE66D" />
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Sarah Johnson</strong>
+                        <p style="font-size: 12px;">Mother of Emily</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>"A truly safe environment. I never worry when my son is at daycare. The facilities are top-notch."</p>
+                <div class="testimonial-user">
+                    <div class="user-avatar">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50" fill="#4ECDC4" />
+                            <circle cx="50" cy="40" r="20" fill="#A29BFE" />
+                            <path d="M20 90 Q50 60 80 90" fill="#A29BFE" />
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Mark Williams</strong>
+                        <p style="font-size: 12px;">Father of Leo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>"I love how they focus on creativity. The art projects they bring home are simply amazing!"</p>
+                <div class="testimonial-user">
+                    <div class="user-avatar">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50" fill="#FF6B6B" />
+                            <circle cx="50" cy="40" r="20" fill="#FF9F43" />
+                            <path d="M20 90 Q50 60 80 90" fill="#FF9F43" />
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Jessica Lee</strong>
+                        <p style="font-size: 12px;">Mother of Chloe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="container contact-container">
+        <div class="contact-info">
+            <h2>Join Our Family Today!</h2>
+            <p>Ready to give your child the best start in life? Fill out the form and our admissions team will get in touch with you shortly.</p>
+            <div style="margin-top: 40px;">
+                <p><strong>✉️ Email:</strong> support@kidslearningbundle.com</p>
+            </div>
+            <div style="margin-top: 40px;">
+                <svg width="250" height="150" viewBox="0 0 200 100">
+                    <!-- Playful Envelope Icon -->
+                    <rect x="20" y="20" width="100" height="60" rx="5" fill="#4ECDC4" />
+                    <path d="M20 20 L70 50 L120 20" fill="none" stroke="white" stroke-width="3" />
+                    <circle cx="150" cy="50" r="20" fill="#FFE66D" />
+                    <path d="M140 50 L160 50 M150 40 L150 60" stroke="#FF6B6B" stroke-width="3" />
+                </svg>
+            </div>
+        </div>
+        <form class="contact-form" id="enrollForm">
+            <div class="form-group">
+                <label for="name">Parent's Name</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter your phone">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+        </form>
+    </div>
+</section>
+
 <footer>
-  <p style="text-align:center">© 2026 Happy Kids Kindergarten</p>
+    <div class="container footer-grid">
+        <div class="footer-col">
+            <a href="#" class="logo" style="color: white; margin-bottom: 20px;">
+                Happy Kids
+            </a>
+            <p>Nurturing the leaders of tomorrow with love, care, and quality education today.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#programs">Programs</a>
+            <a href="#gallery">Gallery</a>
+        </div>
+        <div class="footer-col">
+            <h4>Support</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">FAQ</a>
+            <a href="#">Careers</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div style="display: flex; gap: 15px; font-size: 24px;">
+                <a href="#">🌈</a>
+                <a href="#">🧸</a>
+                <a href="#">🎨</a>
+                <a href="#">🍭</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2023 Happy Kids Kindergarten & Daycare. All Rights Reserved.</p>
+    </div>
 </footer>
 
 <script>
-document.getElementById("form").onsubmit=e=>{
-  e.preventDefault();
-  alert("Thank you! We will contact you soon 😊");
-}
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Form Validation
+    const enrollForm = document.getElementById('enrollForm');
+    enrollForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
+
+        if(!name || !email || !phone || !message) {
+            alert('Please fill in all the fields so we can get back to you! 😊');
+            return;
+        }
+
+        // Simple email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!emailRegex.test(email)) {
+            alert('Oops! Please enter a valid email address. 📧');
+            return;
+        }
+
+        // Success feedback
+        const submitBtn = enrollForm.querySelector('button');
+        submitBtn.innerText = 'Sending...';
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+            alert(`Thank you, ${name}! We've received your message and will call you soon! 🎉`);
+            enrollForm.reset();
+            submitBtn.innerText = 'Submit Inquiry';
+            submitBtn.disabled = false;
+        }, 1500);
+    });
+
+    // Simple button hover sound effect logic (conceptual)
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+            // You could play a tiny bubble pop sound here
+        });
+    });
+
+    // Scroll animation for cards
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.card, .feature-item, .testimonial-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        observer.observe(el);
+    });
 </script>
 
 </body>
 </html>
+    
