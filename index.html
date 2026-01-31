@@ -9,8 +9,8 @@
 --secondary: #f6cb32;
 --accent: #FFE66D;
 --orange: #FF9F43;
---purple: #A29BFE;
---light-bg: #F9FBFF;
+--purple: #e0b62b59;
+--light-bg: #fffff9;
 --text-dark: #2D3436;
 --text-muted: #636E72;
 --white: #FFFFFF;
@@ -130,12 +130,15 @@
         justify-content: space-between;
         min-height: 100vh;
         padding-top: 120px;
-        background: radial-gradient(circle at 10% 20%, rgba(255, 230, 109, 0.1) 0%, rgba(78, 205, 196, 0.1) 90%);
+        background: radial-gradient(circle at 10% 20%, rgba(255, 231, 109, 0.874) 0%, rgba(78, 205, 196, 0.1) 90%);
     }
 
     .hero-content {
         flex: 1;
         max-width: 600px;
+        padding-right: 40px;
+        
+        color: var(--text-dark);
     }
 
     .hero-content h1 {
@@ -246,7 +249,7 @@
 
     /* Why Choose Us */
     .features {
-        background-color: #f0f7f6;
+        background-color: #ffffff;
     }
 
     .feature-item {
@@ -266,31 +269,128 @@
         flex-shrink: 0;
     }
 
-    /* Gallery */
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-    }
 
-    .gallery-item {
-        position: relative;
-        border-radius: 20px;
-        overflow: hidden;
-        height: 250px;
-        background: #eee;
-        cursor: pointer;
-    }
+/* =========================
+   GALLERY SECTION
+========================= */
 
-    .gallery-item svg {
-        width: 100%;
-        height: 100%;
-        transition: transform 0.5s;
-    }
+.gallery {
+    background: #f9fbff;
+    padding: 90px 5%;
+}
 
-    .gallery-item:hover svg {
-        transform: scale(1.1);
-    }
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 40px;
+    font-weight: 800;
+    color: #ec940f7c;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #636E72;
+    font-size: 16px;
+}
+
+/* =========================
+   GALLERY GRID
+========================= */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+/* =========================
+   GALLERY ITEM
+========================= */
+
+.gallery-item {
+    position: relative;
+    height: 250px;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #eee;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   GALLERY IMAGE
+========================= */
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.12);
+}
+
+/* =========================
+   OVERLAY (OPTIONAL)
+========================= */
+
+.gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0.1),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* =========================
+   IMAGE TITLE (OPTIONAL)
+========================= */
+
+.gallery-item span {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    transform: translateY(10px);
+}
+
+.gallery-item:hover span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
     /* Testimonials */
     .testimonial-card {
@@ -632,54 +732,35 @@
             <h2>Capturing Happy Moments</h2>
             <p>Take a peek into the wonderful world of Happy Kids.</p>
         </div>
+
         <div class="gallery-grid">
             <div class="gallery-item">
-                <svg viewBox="0 0 200 200">
-                    <rect width="200" height="200" fill="#FFE66D" />
-                    <circle cx="100" cy="100" r="40" fill="#FF6B6B" />
-                    <circle cx="60" cy="60" r="20" fill="white" opacity="0.3" />
-                    <text x="50" y="180" font-family="Arial" font-weight="bold" fill="#2D3436">Playing</text>
-                </svg>
+                <img src="img/playing.jpg" alt="Playing">
             </div>
+
             <div class="gallery-item">
-                <svg viewBox="0 0 200 200">
-                    <rect width="200" height="200" fill="#4ECDC4" />
-                    <rect x="50" y="50" width="100" height="100" rx="10" fill="white" opacity="0.5" />
-                    <text x="50" y="180" font-family="Arial" font-weight="bold" fill="#2D3436">Classroom</text>
-                </svg>
+                <img src="img/classroom.jpg" alt="Classroom">
             </div>
+
             <div class="gallery-item">
-                <svg viewBox="0 0 200 200">
-                    <rect width="200" height="200" fill="#A29BFE" />
-                    <path d="M40 40 Q100 20 160 40 Q180 100 160 160 Q100 180 40 160 Z" fill="#FFE66D" />
-                    <text x="50" y="180" font-family="Arial" font-weight="bold" fill="#2D3436">Art & Craft</text>
-                </svg>
+                <img src="img/art_craft.jpg" alt="Art & Craft">
             </div>
+
             <div class="gallery-item">
-                <svg viewBox="0 0 200 200">
-                    <rect width="200" height="200" fill="#FF9F43" />
-                    <circle cx="50" cy="50" r="30" fill="white" opacity="0.4" />
-                    <circle cx="150" cy="150" r="30" fill="white" opacity="0.4" />
-                    <text x="50" y="180" font-family="Arial" font-weight="bold" fill="#2D3436">Music</text>
-                </svg>
+                <img src="img/music.jpg" alt="Music">
             </div>
+
             <div class="gallery-item">
-                <svg viewBox="0 0 200 200">
-                    <rect width="200" height="200" fill="#78E08F" />
-                    <path d="M50 150 L100 50 L150 150 Z" fill="#FF6B6B" opacity="0.7" />
-                    <text x="50" y="180" font-family="Arial" font-weight="bold" fill="#2D3436">Adventure</text>
-                </svg>
+                <img src="img/adventure.jpg" alt="Adventure">
             </div>
+
             <div class="gallery-item">
-                <svg viewBox="0 0 200 200">
-                    <rect width="200" height="200" fill="#FF6B6B" />
-                    <circle cx="100" cy="100" r="60" fill="white" opacity="0.2" />
-                    <text x="50" y="180" font-family="Arial" font-weight="bold" fill="#white">Smiles</text>
-                </svg>
+                <img src="img/smiles.jpg" alt="Smiles">
             </div>
         </div>
     </div>
 </section>
+
 
 <section class="testimonials">
     <div class="container">
