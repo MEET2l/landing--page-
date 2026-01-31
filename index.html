@@ -5,8 +5,8 @@
 <title>Happy Kids Kindergarten - A World of Joy</title>
 <style>
 :root {
---primary: #FF6B6B;
---secondary: #4ECDC4;
+--primary: #ffbc6b;
+--secondary: #f6cb32;
 --accent: #FFE66D;
 --orange: #FF9F43;
 --purple: #A29BFE;
@@ -97,9 +97,13 @@
         align-items: center;
         gap: 10px;
         font-size: 24px;
-        font-weight: 900;
+        font-weight: 400;
         color: var(--primary);
         text-decoration: none;
+    }
+    .logo img {
+        height: 40px;
+        width: auto;
     }
 
     .nav-links {
@@ -231,11 +235,12 @@
 
     .about-content {
         flex: 1;
+        color: var(--text-dark);
     }
 
     .about-content h2 {
         font-size: 36px;
-        color: var(--secondary);
+        color: var(--primary);
         margin-bottom: 20px;
     }
 
@@ -363,6 +368,19 @@
         color: var(--white);
         padding: 80px 5% 30px;
     }
+    .f-logo     {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 24px;
+        font-weight: 400;
+        color: var(--primary);
+        text-decoration: none;
+    }
+    .f-logo img {
+        height: 80px;
+        width: auto;
+    }
 
     .footer-grid {
         display: grid;
@@ -418,14 +436,7 @@
 <body>
         <nav>
     <a href="#" class="logo">
-        <svg width="40" height="40" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="45" fill="#FF6B6B" />
-            <path d="M30 40 Q50 20 70 40 Q50 60 30 40" fill="white" />
-            <circle cx="40" cy="45" r="4" fill="#2D3436" />
-            <circle cx="60" cy="45" r="4" fill="#2D3436" />
-            <path d="M40 65 Q50 75 60 65" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" />
-        </svg>
-        Happy Kids
+        <img src="img/logo.png" alt="">
     </a>
     <ul class="nav-links">
         <li><a href="#home">Home</a></li>
@@ -735,16 +746,7 @@
             <h2>Join Our Family Today!</h2>
             <p>Ready to give your child the best start in life? Fill out the form and our admissions team will get in touch with you shortly.</p>
             <div style="margin-top: 40px;">
-                <p><strong>✉️ Email:</strong> support@kidslearningbundle.com</p>
-            </div>
-            <div style="margin-top: 40px;">
-                <svg width="250" height="150" viewBox="0 0 200 100">
-                    <!-- Playful Envelope Icon -->
-                    <rect x="20" y="20" width="100" height="60" rx="5" fill="#4ECDC4" />
-                    <path d="M20 20 L70 50 L120 20" fill="none" stroke="white" stroke-width="3" />
-                    <circle cx="150" cy="50" r="20" fill="#FFE66D" />
-                    <path d="M140 50 L160 50 M150 40 L150 60" stroke="#FF6B6B" stroke-width="3" />
-                </svg>
+                <p><strong><a href="mailto:support@spaceece.com" style="text-decoration: none; color: var(--primary);">✉️ Email: support@spaceece.com</a></strong></p>
             </div>
         </div>
         <form class="contact-form" id="enrollForm">
@@ -772,8 +774,8 @@
 <footer>
     <div class="container footer-grid">
         <div class="footer-col">
-            <a href="#" class="logo" style="color: white; margin-bottom: 20px;">
-                Happy Kids
+            <a href="#" class="f-logo" style="color: white; margin-bottom: 20px;">
+                <img src="img/SpacECELogo.jpg" alt="">
             </a>
             <p>Nurturing the leaders of tomorrow with love, care, and quality education today.</p>
         </div>
